@@ -1,0 +1,45 @@
+{
+    "formatCodeOptions": {
+        "indentSize": 2,
+        "tabSize": 2,
+        "newLineCharacter": "\n",
+        "convertTabsToSpaces": true,
+        "insertSpaceAfterCommaDelimiter": true,
+        "insertSpaceAfterSemicolonInForStatements": true,
+        "insertSpaceBeforeAndAfterBinaryOperators": true,
+        "insertSpaceAfterKeywordsInControlFlowStatements": true,
+        "insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+        "insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+        "placeOpenBraceOnNewLineForFunctions": false,
+        "placeOpenBraceOnNewLineForControlBlocks": false
+    },
+    "pitcher": {
+        "moduleGlob": "modules/*.ts"
+    },
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "noImplicitAny": true
+    },
+    "filesGlob": [
+        "typings/all.d.ts",
+        "typings/api.d.ts",
+        "typings/evernote.d.ts",
+        "evernote/index.d.ts",
+        "modules/*.ts",
+        "lib/*.ts",
+        "*.ts"
+    ],
+    "files": [
+        "typings/all.d.ts",
+        "typings/evernote.d.ts",
+        "modules/app.ts",
+        "modules/commandline.ts",
+        "modules/config.ts",
+        "modules/env.ts",
+        "modules/evernote.ts",
+        "modules/random.ts",
+        "lib/evernote-promisified.ts",
+        "index.ts"
+    ]
+}
