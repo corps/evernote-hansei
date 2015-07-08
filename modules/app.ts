@@ -24,10 +24,19 @@ export class App {
     var i = 0;
     return Promise.all(this.newDigestNotes.map((m) => {
       return this.noteStore.copyNote(m.guid, this.targetNotebook.guid).then((note) => {
-        var modifiedNote = new Evernote.Note({ guid: note.guid, title: note.title });
-        modifiedNote.attributes = new Evernote.NoteAttributes();
-        modifiedNote.attributes.reminderTime = (Math.floor(new Date().getTime() / 1000) - (i++)) * 1000;
-        return this.noteStore.updateNote(modifiedNote);
+        return this.noteStore.getNote(note.guid, true, false, false, false).then((note) => {
+          var modifiedNote = new Evernote.Note({ guid: note.guid, title: note.title });
+          var noteLinkUrl = "evernote:///view/" + this.user.id + "/" + this.user.shardId + "/";
+          noteLinkUrl += m.guid + "/" + m.guid + "/";
+          var noteLinkContent = `<br/><br/>
+          <div>
+            <a href="${noteLinkUrl}">Original Note</a>
+          </div>`
+          modifiedNote.content = note.content.replace("</en-note>", noteLinkContent + "</en-note>")
+          modifiedNote.attributes = new Evernote.NoteAttributes();
+          modifiedNote.attributes.reminderTime = (Math.floor(new Date().getTime() / 1000) - (i++)) * 1000;
+          return this.noteStore.updateNote(modifiedNote);
+        })
       })
     }))
   }
@@ -56,7 +65,7 @@ export class Module implements pitcher.Builds<ModuleGraph> {
       var newDigestNotes = graph.newDigestNotesProvider.get();
       var targetNotebook = graph.targetNotebookProvider.get();
 
-      pitcher.awaitAll([readNotesMetadata[2],noteStore[2],user[2],newDigestNotes[2],targetNotebook[2]], (_, err) => {
+      pitcher.awaitAll([readNotesMetadata[2], noteStore[2], user[2], newDigestNotes[2], targetNotebook[2]], (_, err) => {
         err ? reject(err) : resolve(new this.providesApp(readNotesMetadata[0], noteStore[0], user[0], newDigestNotes[0], targetNotebook[0]));
       });
     });

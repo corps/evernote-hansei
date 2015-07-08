@@ -55,6 +55,14 @@ function promisify4<R, A1, A2, A3, A4>(f: (a1: A1, a2: A2, a3: A3, a4: A4, cb: E
   }
 }
 
+function promisify5<R, A1, A2, A3, A4, A5>(f: (a1: A1, a2: A2, a3: A3, a4: A4, a5: A5, cb: Evernote.Callback<R>) => void) {
+  return (a1: A1, a2: A2, a3: A3, a4: A4, a5: A5) => {
+    var deferred = evernoteDeferred<R>();
+    f(a1, a2, a3, a4, a5, deferred.cb);
+    return deferred.promise;
+  }
+}
+
 export function promisifyUserStore(userStore: Evernote.UserStoreClient) {
   return {
     getUser: promisify0(userStore.getUser)
@@ -74,7 +82,8 @@ export function promisifyNoteStore(noteStore: Evernote.NoteStoreClient) {
     findNotesMetadata: promisify4(noteStore.findNotesMetadata),
     expungeNote: promisify1(noteStore.expungeNote),
     copyNote: promisify2(noteStore.copyNote),
-    updateNote: promisify1(noteStore.updateNote)
+    updateNote: promisify1(noteStore.updateNote),
+    getNote: promisify5(noteStore.getNote)
   };
 }
 
