@@ -22,6 +22,12 @@
     },
     "node-uuid/node-uuid.d.ts": {
       "commit": "ab3cc82066805007cbf0db233ddb5879f42be4d2"
+    },
+    "evernote/evernote.d.ts": {
+      "commit": "fcb201432797dcab81d5c51e7377ebd42753d82d"
+    },
+    "thrift/thrift.d.ts": {
+      "commit": "7c27233ae47768442b9b0a40d7f03fadf593fad2"
     }
   }
 }

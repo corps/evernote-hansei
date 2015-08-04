@@ -14,7 +14,9 @@
         "placeOpenBraceOnNewLineForControlBlocks": false
     },
     "pitcher": {
-        "moduleGlob": "modules/*.ts"
+        "moduleGlob": "modules/src/*.ts",
+        "moduleOutputDir": "modules/built/",
+        "moduleSrcDir": "modules/src/"
     },
     "compilerOptions": {
         "module": "commonjs",
@@ -22,24 +24,25 @@
         "noImplicitAny": true
     },
     "filesGlob": [
-        "typings/all.d.ts",
-        "typings/api.d.ts",
-        "typings/evernote.d.ts",
-        "evernote/index.d.ts",
-        "modules/*.ts",
-        "lib/*.ts",
+        "typings/tsd.d.ts",
+        "modules/built/*.ts",
+        "modules/src/*.ts",
         "*.ts"
     ],
     "files": [
-        "typings/all.d.ts",
-        "typings/evernote.d.ts",
-        "modules/app.ts",
-        "modules/commandline.ts",
-        "modules/config.ts",
-        "modules/env.ts",
-        "modules/evernote.ts",
-        "modules/random.ts",
-        "lib/evernote-promisified.ts",
+        "typings/tsd.d.ts",
+        "modules/built/app.ts",
+        "modules/built/commandline.ts",
+        "modules/built/config.ts",
+        "modules/built/env.ts",
+        "modules/built/evernote.ts",
+        "modules/built/random.ts",
+        "modules/src/app.ts",
+        "modules/src/commandline.ts",
+        "modules/src/config.ts",
+        "modules/src/env.ts",
+        "modules/src/evernote.ts",
+        "modules/src/random.ts",
         "index.ts"
     ]
 }

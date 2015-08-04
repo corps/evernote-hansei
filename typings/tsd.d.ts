@@ -5,3 +5,6 @@
 /// <reference path="commander/commander.d.ts" />
 /// <reference path="../node_modules/pitcher/index.d.ts" />
 /// <reference path="node-uuid/node-uuid.d.ts" />
+/// <reference path="../node_modules/evernote-promisified-ts/cjs.d.ts" />
+/// <reference path="evernote/evernote.d.ts" />
+/// <reference path="thrift/thrift.d.ts" />
