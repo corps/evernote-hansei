@@ -2,3 +2,4 @@ logs
 node_modules
 node_debug.log
 **/*.js
+npm-debug.log
