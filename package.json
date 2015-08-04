@@ -28,6 +28,6 @@
     "pitcher": "~0.2.1",
     "thrift": "^0.9.2",
     "typescript": "~1.5.3",
-    "evernote-promisified-ts": "~0.1.1"
+    "evernote-promisified-ts": "~0.1.2"
   }
 }
